@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONG Crianças Carentes - Juntos por um Futuro Melhor</title>
+  <style>    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background-color: #f8f9fa; }
+
+    header { background: #2e7d32; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+
+    nav ul { list-style: none; display: flex; gap: 25px; }
+    nav a { color: white; text-decoration: none; font-weight: bold; padding: 5px 0; transition: border-bottom 0.3s ease; }
+    nav a:hover, nav a.ativo { border-bottom: 2px solid #ffc107; }
+
+    .banner { height: 60vh; display: flex; align-items: center; justify-content: center; color: white; text-align: center; position: relative; background: #333; background-size: cover; background-position: center center; }
+    .banner-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+    .banner::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 1; }
+    .banner-texto { position: relative; z-index: 2; padding: 30px; border-radius: 10px; max-width: 800px; }
+    .banner-texto h2 { font-size: 3em; margin-bottom: 15px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); }
+    .banner-texto p { font-size: 1.2em; margin-bottom: 20px; }
+    .btn { background: #ffc107; padding: 12px 25px; color: #333; font-weight: bold; text-decoration: none; border-radius: 5px; transition: background 0.3s ease; display: inline-block; }
+    .btn:hover { background: #ffb300; }
+
+    section { padding: 60px 20px; max-width: 1000px; margin: auto; background-color: white; border-bottom: 1px solid #eee; }
+    section:nth-of-type(even) { background-color: #f2f2f2; }
+    section h2 { text-align: center; margin-bottom: 40px; color: #2e7d32; font-size: 2.5em; }
+    .sobre p, .curiosidade p { font-size: 1.1em; text-align: justify; margin-bottom: 20px; }
+    .cuidados ul { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding-left: 0; }
+    .cuidados li { background: #e8f5e9; padding: 15px; border-radius: 8px; text-align: center; font-size: 1.1em; font-weight: bold; color: #2e7d32; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    .cards { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 30px; }
+    .card { background: #fff; padding: 25px; border-radius: 8px; flex: 1; min-width: 280px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 { color: #2e7d32; margin-bottom: 15px; font-size: 1.5em; }
+    .card p { font-size: 1em; color: #555; }
+
+    .galeria .imagens { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; margin-top: 30px; }
+    .galeria img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .galeria img:hover { transform: scale(1.03); }
+
+    .cadastro form { display: flex; flex-direction: column; gap: 15px; max-width: 600px; margin: 0 auto; padding: 30px; background: #fff; border-radius: 8px; box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); }
+    .cadastro input, .cadastro button { padding: 12px; border-radius: 5px; border: 1px solid #ccc; font-size: 1em; }
+    .cadastro input:focus { outline: none; border-color: #2e7d32; box-shadow: 0 0 5px rgba(46, 125, 50, 0.3); }
+    .cadastro button { background: #2e7d32; color: white; cursor: pointer; font-weight: bold; transition: background 0.3s ease; }
+    .cadastro button:hover { background: #1b5e20; }
+
+    footer { text-align: center; padding: 30px; background: #2e7d32; color: white; margin-top: 50px; }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; text-align: center; }
+      nav ul { margin-top: 15px; flex-direction: column; gap: 10px; }
+      .banner-texto h2 { font-size: 2.2em; }
+      .banner-texto p { font-size: 1em; }
+      .cards { flex-direction: column; align-items: center; }
+      .card { min-width: 90%; }
+      .galeria .imagens { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>ONG Crianças Carentes</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio" class="ativo">Início</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#cadastro">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="inicio" class="banner">
+    <img class="banner-image" src="https://lh3.googleusercontent.com/gg-dl/AJfQ9KRcf5mVLMRo4ni5jiZ4rksuNNmGSxmO_KNUVv144YfLiY2WsC-EoJLW3KAoY065X3_by2PzNm_RO0yNCLNmlflVVDmM8faIhG0Kr0nRsx98Ni85CMgtAJNAxaLQGIXGdQ37qduFsuuIdD-esyDyc688VZ1lgXaSj0vAQDCNQy9_Gu6V-Q=s1024-rj" alt="Crianças felizes brincando em um campo verde">
+    <div class="banner-texto">
+      <h2>Juntos podemos construir um futuro digno para nossas crianças.</h2>
+      <p>Sua ajuda faz a diferença na vida de milhares de crianças carentes no Brasil.</p>
+      <a href="#cadastro" class="btn">Quero Ajudar!</a>
+    </div>
+  </section>
+
+  <section id="sobre" class="sobre">
+    <h2>Nossa História</h2>
+    <p>
+      A ONG Crianças Carentes nasceu da compaixão por crianças que não têm acesso a direitos básicos.
+      Nosso propósito é acolher, educar e garantir um futuro digno para cada criança.
+      Desde a nossa fundação, temos trabalhado incansavelmente para reverter quadros de vulnerabilidade social,
+      oferecendo um ambiente seguro e oportunidades para o desenvolvimento integral.
+    </p>
+    <div class="curiosidade">
+      <h2>Realidade das Crianças no Brasil</h2>
+      <p>
+        Milhares de crianças enfrentam fome, frio e falta de acesso à educação em nosso país.
+        Com a ajuda de voluntários dedicados, parceiros comprometidos e doadores generosos,
+        conseguimos transformar essas histórias todos os dias.
+      </p>
+    </div>
+    <div class="cuidados">
+      <h2>Como Atuamos</h2>
+      <ul>
+        <li>📍 Acolhimento e proteção de crianças em situação de risco.</li>
+        <li>📚 Educação e reforço escolar para combater a evasão e promover o aprendizado.</li>
+        <li>🏥 Atendimento básico de saúde e encaminhamento médico.</li>
+        <li>🎨 Projetos culturais e esportivos para estimular o desenvolvimento e a criatividade.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projetos" class="projetos">
+    <h2>Projetos Sociais</h2>
+    <p>Conheça as iniciativas que transformam vidas e levam esperança:</p>
+    <div class="cards">
+      <div class="card">
+        <h3>Alimentando Esperanças</h3>
+        <p>Distribuição de refeições nutritivas e kits de higiene para crianças e suas famílias em situação de rua ou de extrema pobreza.</p>
+      </div>
+      <div class="card">
+        <h3>Educar é Transformar</h3>
+        <p>Oferecemos aulas de reforço escolar, oficinas de leitura, escrita e atividades culturais diversas, como música e teatro.</p>
+      </div>
+      <div class="card">
+        <h3>Lar Temporário</h3>
+        <p>Acolhimento emergencial e busca por famílias acolhedoras, proporcionando um ambiente seguro e afetuoso.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="galeria">
+    <h2>Momentos que Inspiram</h2>
+    <div class="imagens">
+      <img src="imagens/criancas1.jpeg" alt="Crianças brincando">
+      <img src="imagens/criancas2.jpeg" alt="Crianças sorrindo">
+      <img src="imagens/criancas3.jpeg" alt="Crianças recebendo alimentos">
+      <img src="imagens/criancas4.jpeg" alt="Crianças estudando">
+      <img src="imagens/criancas5.jpeg" alt="Crianças desenhando">
+      <img src="imagens/criancas6.jpeg" alt="Crianças desenhando">
+    </div>
+  </section>
+
+  <section id="cadastro" class="cadastro">
+    <h2>Cadastre-se para ser voluntário ou doar</h2>
+    <p style="text-align: center; margin-bottom: 25px;">Preencha o formulário abaixo e faça parte da nossa família de transformadores!</p>
+    <form id="form-cadastro">
+      <input type="text" placeholder="Nome Completo" required>
+      <input type="email" placeholder="E-mail" required>
+      <input type="text" placeholder="CPF (Ex: 000.000.000-00)" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="Digite no formato 000.000.000-00">
+      <input type="tel" placeholder="Telefone (Ex: 00 90000-0000)" required pattern="\d{2} \d{5}-\d{4}" title="Digite no formato 00 90000-0000">
+      <input type="date" placeholder="Data de Nascimento" required>
+      <input type="text" placeholder="Endereço Completo" required>
+      <input type="text" placeholder="CEP (Ex: 00000-000)" required pattern="\d{5}-\d{3}" title="Digite no formato 00000-000">
+      <input type="text" placeholder="Cidade" required>
+      <input type="text" placeholder="Estado" required>
+      <button type="submit">Enviar Cadastro</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 ONG Crianças Carentes — Todos os direitos reservados</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById('form-cadastro');
